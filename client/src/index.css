@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&display=swap');
+
+:root {
+  font-family: Roboto Slab;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: rgb(65, 65, 65);
+ 
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+body{
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+input[type=file]{
+  color: transparent;
+}
+input:focus {
+  outline: 0;
+}
+textarea:focus {
+  outline: 0;
+}
+button{
+  font-family: Roboto Slab;
+  font-weight: 400;
+  font-size: 1.2rem;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(143, 143, 143);
+  color: white;
+  cursor: pointer;
+}
+button:hover{
+  background-color: gray;
+}
+.app-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 610px;
+  text-align: center;
+}
+.upload-wrapper{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.upload-wrapper-left{
+  position: relative;
+  width: 300px;
+}
+.custom-input-file::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-input-file::-webkit-file-upload-file {
+  visibility: hidden;
+}
+.custom-input-file{
+  position: relative;
+  display: flex;
+  width: 300px;
+  height: 130px;
+  border: 1px dashed rgb(202, 202, 202);
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2;
+}
+.input-file-button {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 130px;
+  background-color: white;
+  color: gray;
+  z-index: 1;
+}
+.input-file-button:hover {
+  background-color: rgb(129, 129, 129);
+}
+.upload-wrapper-right{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  gap: 10px;
+}
+.input-title, .input-description{
+  font-family: Roboto Slab;
+  font-weight: 400;
+  height: 25px;
+  background-color: rgb(240, 240, 240);
+  border: none;
+  border-radius: 5px;
+}
+.input-description{
+  height: 50px;
+  resize: none;
+}
+.template-wrapper{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  width: 610px;
+  text-align: left;
+  gap: 10px;
+}
+.template-number{
+  width: 50px;
+  height: 50px;
+  font-size: 1.6rem;
+  background-color: rgb(241, 187, 156);
+  border-radius: 25px;
+  text-align: center;
+  color: white;
+}
+.template-text-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  gap: 10px;
+  min-height: 100px;
+}
+.template-title{
+  font-size: 1.4rem;
+}
+.template-description{
+  font-weight: 300;
+  color:rgb(104, 104, 104);
+}
+.loading-wrapper{
+  width: 610px;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+}
+.loading-content{
+  display: flex;
+  font-size: 1rem;
+  color: rgb(65, 65, 65);
+  margin-top: 110px;
+}
