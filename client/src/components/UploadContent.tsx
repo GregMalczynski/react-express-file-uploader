@@ -12,10 +12,6 @@ export interface UploadProps{
     setContentLoading: (a: boolean) => void,
 }
 
-interface HTMLInputEvent extends Event {
-    target: HTMLInputElement & EventTarget;
-}
-
 const UploadContent:React.FC <UploadProps> = ({file, setFile, title, setTitle, description, setDescription, uploadedFile, setUploadedFile, setContentLoading}) => {
 
     const choiceFile = (e: React.ChangeEvent) => {

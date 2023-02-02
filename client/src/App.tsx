@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import UploadContent from './components/UploadContent';
 import TemplateContent from './components/TemplateContent';
@@ -12,8 +12,8 @@ const App:React.FC = () => {
     const [ uploadedFile, setUploadedFile ] = useState<string []>([]);
     const [ contentLoading, setContentLoading ] = useState<boolean>(false);
 
-    const deleteContent = ( index: any ) => {
-    const res: any = axios.delete('http://localhost:5000/upload', {
+    const deleteContent = ( index: Object) => {
+    const res: Object = axios.delete('http://localhost:5000/upload', {
         headers: {
         'Content-Type': 'multipart/form-data'
         },
