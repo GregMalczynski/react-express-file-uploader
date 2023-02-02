@@ -1,7 +1,7 @@
 export interface TemplateProps{
-    item: any,
-    deleteContent: any,
-    index: any,
+    item: {img: {fileName: string, filePath: string}, title: string, description: string},
+    deleteContent: ([]) => void ,
+    index: number,
 }
 
 const TemplateContent:React.FC <TemplateProps> = ({item, deleteContent, index}) => 

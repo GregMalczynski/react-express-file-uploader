@@ -1,34 +1,37 @@
-import axios from "axios"
+import axios from "axios";
 
 export interface UploadProps{
     file: any,
-    setFile: any,
-    title: any,
-    setTitle: any,
-    description: any,
-    setDescription: any,
+    setFile: ({}) => void,
+    title: string,
+    setTitle: (a: string) => void,
+    description: string,
+    setDescription: (a: string) => void,
     uploadedFile: any,
-    setUploadedFile: any,
-    setContentLoading: any,
+    setUploadedFile: (a: string []) => void,
+    setContentLoading: (a: boolean) => void,
+}
+
+interface HTMLInputEvent extends Event {
+    target: HTMLInputElement & EventTarget;
 }
 
 const UploadContent:React.FC <UploadProps> = ({file, setFile, title, setTitle, description, setDescription, uploadedFile, setUploadedFile, setContentLoading}) => {
 
-    const choiceFile = (e: any) => {
-        const file = e.target.files[0]
-        if(!file) return
-        setFile(file)
-        console.log(file.name)
+    const choiceFile = (e: React.ChangeEvent) => {
+        const target = e.target as HTMLInputElement;
+        const file: File = (target.files as FileList)[0]
+            if(!file) return;
+            setFile(file);
     }
 
     const uploadFile = async (e: React.FormEvent) => {
-        e.preventDefault()
+        e.preventDefault();
 
-        setContentLoading(true)
+        setContentLoading(true);
 
-        const formData = new FormData()
-        formData.append('file', file)
-        console.log('file ' + file)
+        const formData = new FormData();
+        formData.append('file', file);
     
         try {
             const res = await axios.post('http://localhost:5000/upload', formData, {
@@ -36,14 +39,14 @@ const UploadContent:React.FC <UploadProps> = ({file, setFile, title, setTitle, d
                     'Content-Type': 'multipart/form-data'
                 }
             })
-            console.log('response' + res.data)
-            setUploadedFile([...uploadedFile, {img: res.data, title: title, description: description}])
-            setContentLoading(false)
+            console.log('response' + res.data);
+            setUploadedFile([...uploadedFile, {img: res.data, title: title, description: description}]);
+            setContentLoading(false);
         } catch(err: any) {
             if(err.response.status === 500 ) {
-                console.log('Server problem...')
+                console.log('Server problem...');
             } else {
-                console.log(err.response.data.msg)
+                console.log(err.response.data.msg);
             }
         }
         setTitle('');

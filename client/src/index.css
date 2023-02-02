@@ -137,6 +137,7 @@ button:hover{
   position: absolute;
   justify-content: center;
   display: flex;
+  z-index: 1;
 }
 .loading-content{
   display: flex;
